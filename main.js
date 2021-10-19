@@ -87,7 +87,7 @@ function smoothScroll() {
   });
 }
 function resizeBodyHeight() {
-  document.body.style.height = document.querySelector('.content').scrollHeight + 'px';
+  document.body.style.height = document.querySelector('.content').scrollWidth + 'px';
 }
 
 
