@@ -6,10 +6,10 @@ var SmoothScroll /** @class */ = (function() {
 		this.endThreshold = 0.05;
 		this.requestId = null;
 		this.maxDepth = 10;
-		this.viewHeight = 0;
-		this.halfViewHeight = 0;
+		this.viewWidth = 0;
+		this.halfViewWidth = 0;
 		this.maxDistance = 0;
-		this.scrollHeight = 0;
+		this.scrollWidth = 0;
 		this.endScroll = 0;
 		this.currentScroll = 0;
 		this.resizeRequest = 1;
@@ -43,26 +43,26 @@ var SmoothScroll /** @class */ = (function() {
 			var deltaTime = elapsedMS * _this.targetFPMS;
 			var dt = 1 - Math.pow(1 - _this.scrollEase, deltaTime);
 			var resized = _this.resizeRequest > 0;
-			var scrollY = window.pageYOffset;
+			var scrollX = window.pageXOffset;
 			if (resized) {
-				var height = _this.target.clientHeight;
-				document.body.style.height = height + 'px';
-				_this.scrollHeight = height;
-				_this.viewHeight = window.innerHeight;
-				_this.halfViewHeight = _this.viewHeight / 2;
-				_this.maxDistance = _this.viewHeight * 2;
+				var Width = _this.target.clientWidth;
+				document.body.style.Width = Width + 'px';
+				_this.scrollWidth = Width;
+				_this.viewWidth = window.innerWidth;
+				_this.halfViewWidth = _this.viewWidth / 2;
+				_this.maxDistance = _this.viewWidth * 2;
 				_this.resizeRequest = 0;
 			}
-			_this.endScroll = scrollY;
-			// this.currentScroll += (scrollY - this.currentScroll) * this.scrollEase;
-			_this.currentScroll += (scrollY - _this.currentScroll) * dt;
-			if (Math.abs(scrollY - _this.currentScroll) < _this.endThreshold || resized) {
-				_this.currentScroll = scrollY;
+			_this.endScroll = scrollX;
+			// this.currentScroll += (scrollX - this.currentScroll) * this.scrollEase;
+			_this.currentScroll += (scrollX - _this.currentScroll) * dt;
+			if (Math.abs(scrollX - _this.currentScroll) < _this.endThreshold || resized) {
+				_this.currentScroll = scrollX;
 				_this.scrollRequest = 0;
 			}
-			// const scrollOrigin = scrollY + this.halfViewHeight;
-			var scrollOrigin = _this.currentScroll + _this.halfViewHeight;
-			_this.target.style.transform = 'translate3d(0px,-' + _this.currentScroll + 'px,0px)';
+			// const scrollOrigin = scrollX + this.halfViewWidth;
+			var scrollOrigin = _this.currentScroll + _this.halfViewWidth;
+			_this.target.style.transform = 'translate3d(-'+ _this.currentScroll + 'px, 0px,0px)';
 			for (var i = 0; i < _this.scrollItems.length; i++) {
 				var item = _this.scrollItems[i];
 				var distance = scrollOrigin - item.top;
@@ -74,7 +74,7 @@ var SmoothScroll /** @class */ = (function() {
 					// item.currentOffset += (item.endOffset - item.currentOffset) * this.scrollEase;
 					item.currentOffset += (item.endOffset - item.currentOffset) * dt;
 				}
-				item.target.style.transform = 'translate3d(0px,-' + item.currentOffset + 'px,0px)';
+				item.target.style.transform = 'translate3d(-'+ item.currentOffset + 'px, 0px,0px)';
 			}
 			_this.lastTime = currentTime;
 			_this.requestId = _this.scrollRequest > 0 ? requestAnimationFrame(_this._update) : null;

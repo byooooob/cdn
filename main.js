@@ -59,17 +59,17 @@ var heightofscroller = (TotalWidth - $(".content-scroller").innerWidth()) + $('b
 $('.scroller-container').css('height',heightofscroller);
 
 
-// Dummy Smooth Scroll
+// Horizontal Smooth Scroll
 'use strict';
 const isTouchDevice = 'ontouchstart' in document.documentElement;
 disableScroll();
 if (!isTouchDevice) smoothScroll();
 window.onresize = () => {
-  resizeBodyHeight();
+  resizeBodyWidth();
 };
 window.onload = () => {
   enableScroll();
-  resizeBodyHeight();
+  resizeBodyWidth();
 };
 // Functions
 function disableScroll() {
@@ -86,8 +86,8 @@ function smoothScroll() {
     maxOffset: 500,
   });
 }
-function resizeBodyHeight() {
-  document.body.style.height = document.querySelector('.content').scrollWidth + 'px';
+function resizeBodyWidth() {
+  document.body.style.width = document.querySelector('.content').scrollWidth + 'px';
 }
 
 
