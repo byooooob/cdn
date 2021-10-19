@@ -49,7 +49,16 @@ startType(getRandomPun(), 0);
 $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
 
 
-var heightofscroller = (TotalWidth - $(".content-scroller").innerWidth()) + $('body').innerHeight() + "px";
+
+//Finding Total width of the container
+var TotalWidth = 0;
+$(".content-scroller").children("div").each(function () {
+    var childrenWidth = $(this).innerWidth();
+    TotalWidth += childrenWidth;
+});
+
+// Setting Height of the scroller
+var heightofscroller = (TotalWidth - $(".content-scroller").innerWidth()) + $('body').innerHeight();
 $('.scroller-container').css('height',heightofscroller);
 
 
@@ -86,12 +95,7 @@ function resizeBodyHeight() {
 
 
 
-//Finding Total width of the container
-var TotalWidth = 0;
-$(".content-scroller").children("div").each(function () {
-    var childrenWidth = $(this).innerWidth();
-    TotalWidth += childrenWidth;
-});
+
 
 
 /*
