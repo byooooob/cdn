@@ -49,7 +49,7 @@ $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
 
 
 var blocks = document.getElementsByClassName('block');
-	var container = document.getElementsByClassName('contentscroller');
+	var container = document.getElementsByClassName('content');
   var hs = new HorizontalScroll.default({
 		blocks : blocks,
 	  container: container,
