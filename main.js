@@ -51,9 +51,7 @@ $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
 
 //Finding Total width of the container
 var TotalWidth = 0;
-$(".content-scroller")
-  .children("div")
-  .each(function () {
+$(".contentscroller").children("div").each(function () {
     var childrenWidth = $(this).innerWidth();
     TotalWidth += childrenWidth;
   });
@@ -62,7 +60,7 @@ $(".content-scroller")
 function scrollContentOnPage(percentage) {
   var scrollValue =
     ((TotalWidth - $(".content").innerWidth()) / 100) * percentage;
-  $(".content-scroller").css("transform", "translate(-" + scrollValue + "px)");
+  $(".contentscroller").css("transform", "translate(-" + scrollValue + "px)");
 }
 
 //Scrolling content horizontally by matching it with vertical scroll percentage
