@@ -48,13 +48,3 @@ startType(getRandomPun(), 0);
 $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
 
 
-var blocks = document.getElementsByClassName('block');
-	var container = document.getElementsByClassName('contentscroller');
-  var hs = new HorizontalScroll.default({
-		blocks : blocks,
-	  container: container,
-		isAnimated: true,
-		springEffect: 0.8
-});
-
-
