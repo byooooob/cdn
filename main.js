@@ -47,48 +47,14 @@ startType(getRandomPun(), 0);
 // Setting Grains on top
 $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
 
-//Finding Total width of the container
-var TotalWidth = 0;
-$(".content-scroller").children("div").each(function () {
-    var childrenWidth = $(this).innerWidth();
-    TotalWidth += childrenWidth;
+
+var blocks = document.getElementsByClassName('block');
+	var container = document.getElementsByClassName('content-scroller');
+  var hs = new HorizontalScroll.default({
+		blocks : blocks,
+	  container: container,
+		isAnimated: true,
+		springEffect: 0.8
 });
-
-// Setting Height of the scroller
-var heightofscroller = (TotalWidth - $(".content-scroller").innerWidth()) + $('body').innerHeight();
-$('.scroller-container').css('height',heightofscroller);
-
-
-// Horizontal Smooth Scroll
-'use strict';
-const isTouchDevice = 'ontouchstart' in document.documentElement;
-disableScroll();
-if (!isTouchDevice) smoothScroll();
-window.onresize = () => {
-  resizeBodyWidth();
-};
-window.onload = () => {
-  enableScroll();
-  resizeBodyWidth();
-};
-// Functions
-function disableScroll() {
-  document.body.style.overflow = 'hidden';
-}
-function enableScroll() {
-  document.body.style.overflow = '';
-}
-function smoothScroll() {
-  document.querySelector('.content').classList.add('SmoothScroll');
-  new SmoothScroll({
-    target: document.querySelector('.content-scroller'),
-    scrollEase: 0.08,
-    maxOffset: 500,
-  });
-}
-function resizeBodyWidth() {
-  document.body.style.width = document.querySelector('.content').scrollWidth + 'px';
-}
-
 
 
