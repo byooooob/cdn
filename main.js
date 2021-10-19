@@ -49,3 +49,25 @@ startType(getRandomPun(), 0);
 $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
 
 
+//Finding Total width of the container
+var TotalWidth = 0;
+$(".contentscroller").children("div").each(function () {
+    var childrenWidth = $(this).innerWidth();
+    TotalWidth += childrenWidth;
+  });
+
+//Function for scrolling the content
+function scrollContentOnPage(percentage) {
+  var scrollValue = ((TotalWidth - $(".content").innerWidth()) / 100) * percentage;  
+  $(".content").scrollLeft(scrollValue);
+}
+
+//Scrolling content horizontally by matching it with vertical scroll percentage
+$(window).on("scroll", function () {
+  var s = $(window).scrollTop(),
+    d = $(document).height(),
+    c = $(window).height();
+
+  var scrollPercent = (s / (d - c)) * 100;
+  scrollContentOnPage(scrollPercent);
+});
