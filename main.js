@@ -58,9 +58,8 @@ $(".contentscroller").children("div").each(function () {
 
 //Function for scrolling the content
 function scrollContentOnPage(percentage) {
-  var scrollValue =
-    ((TotalWidth - $(".content").innerWidth()) / 100) * percentage;
-  $(".contentscroller").css("transform", "translate(-" + scrollValue + "px)");
+  var scrollValue = ((TotalWidth - $(".content").innerWidth()) / 100) * percentage;
+  $(".contentscroller").scrollLeft(scrollValue);
 }
 
 //Scrolling content horizontally by matching it with vertical scroll percentage
