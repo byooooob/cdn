@@ -41,14 +41,11 @@ function getRandomPun() {
   return currPun;
 }
 startType(getRandomPun(), 0);
-
 // Search Text Loop - END//
 
 
 // Setting Grains on top
 $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
-
-
 
 //Finding Total width of the container
 var TotalWidth = 0;
