@@ -79,39 +79,16 @@ function enableScroll() {
   document.body.style.overflow = '';
 }
 function smoothScroll() {
-  document.querySelector('.scroller-viewport').classList.add('SmoothScroll');
+  document.querySelector('.content').classList.add('SmoothScroll');
   new SmoothScroll({
-    target: document.querySelector('.scroller-container'),
+    target: document.querySelector('.content-scroller'),
     scrollEase: 0.08,
     maxOffset: 500,
   });
 }
 function resizeBodyHeight() {
-  document.body.style.height = document.querySelector('.scroller-viewport').scrollHeight + 'px';
+  document.body.style.height = document.querySelector('.content').scrollHeight + 'px';
 }
 
 
 
-
-
-
-/*
-
-
-//Function for scrolling the content
-function scrollContentOnPage(percentage) {
-  var scrollValue =
-    ((TotalWidth - $(".content").innerWidth()) / 100) * percentage;
-  $(".content-scroller").css("transform", "translate(-" + scrollValue + "px)");
-}
-
-//Scrolling content horizontally by matching it with vertical scroll percentage
-$(window).on("scroll", function () {
-  var s = $(window).scrollTop(),
-    d = $(document).height(),
-    c = $(window).height();
-
-  var scrollPercent = (s / (d - c)) * 100;
-  scrollContentOnPage(scrollPercent);
-});
-*/
