@@ -122,15 +122,15 @@ function enableScroll() {
 }
 
 function smoothScroll() {
-  document.querySelector('.scrollers-container').classList.add('SmoothScroll');
+  document.querySelector('.scroller-viewport').classList.add('SmoothScroll');
 
   new SmoothScroll({
-    target: document.querySelector('.scroller'),
+    target: document.querySelector('.scroller-container'),
     scrollEase: 0.08,
     maxOffset: 500,
   });
 }
 
 function resizeBodyHeight() {
-  document.body.style.height = document.querySelector('.scrollers-container').scrollHeight + 'px';
+  document.body.style.height = document.querySelector('.scroller-viewport').scrollHeight + 'px';
 }
