@@ -48,6 +48,8 @@ startType(getRandomPun(), 0);
 // Setting Grains on top
 $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
 
+
+/*
 //Finding Total width of the container
 var TotalWidth = 0;
 $(".content-scroller")
@@ -73,7 +75,7 @@ $(window).on("scroll", function () {
   var scrollPercent = (s / (d - c)) * 100;
   scrollContentOnPage(scrollPercent);
 });
-
+*/
 
 
 
