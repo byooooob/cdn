@@ -82,7 +82,7 @@ function resizeBodyHeight() {
 }
 
 
-/*
+
 //Finding Total width of the container
 var TotalWidth = 0;
 $(".content-scroller")
@@ -91,6 +91,9 @@ $(".content-scroller")
     var childrenWidth = $(this).innerWidth();
     TotalWidth += childrenWidth;
   });
+
+/*
+
 
 //Function for scrolling the content
 function scrollContentOnPage(percentage) {
