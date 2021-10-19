@@ -1,3 +1,4 @@
+// Search Text Loop - START//
 let currIndex = 0;
 let typed = "";
 const element = document.querySelector(".typity");
@@ -39,9 +40,12 @@ function getRandomPun() {
 
   return currPun;
 }
-
 startType(getRandomPun(), 0);
 
+// Search Text Loop - END//
+
+
+// Setting Grains on top
 $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
 
 //Finding Total width of the container
