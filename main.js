@@ -73,3 +73,62 @@ $(window).on("scroll", function () {
   var scrollPercent = (s / (d - c)) * 100;
   scrollContentOnPage(scrollPercent);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'use strict';
+
+const isTouchDevice = 'ontouchstart' in document.documentElement;
+
+disableScroll();
+if (!isTouchDevice) smoothScroll();
+
+window.onresize = () => {
+  resizeBodyHeight();
+};
+
+window.onload = () => {
+  enableScroll();
+  resizeBodyHeight();
+};
+
+// Functions
+
+function disableScroll() {
+  document.body.style.overflow = 'hidden';
+}
+
+function enableScroll() {
+  document.body.style.overflow = '';
+}
+
+function smoothScroll() {
+  document.querySelector('.scrollers-container').classList.add('SmoothScroll');
+
+  new SmoothScroll({
+    target: document.querySelector('.scroller'),
+    scrollEase: 0.08,
+    maxOffset: 500,
+  });
+}
+
+function resizeBodyHeight() {
+  document.body.style.height = document.querySelector('.scrollers-container').scrollHeight + 'px';
+}
