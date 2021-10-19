@@ -85,12 +85,11 @@ function resizeBodyHeight() {
 
 //Finding Total width of the container
 var TotalWidth = 0;
-$(".content-scroller")
-  .children("div")
-  .each(function () {
+$(".content-scroller").children("div").each(function () {
     var childrenWidth = $(this).innerWidth();
     TotalWidth += childrenWidth;
-  });
+});
+
 
 /*
 
