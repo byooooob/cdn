@@ -49,6 +49,9 @@ startType(getRandomPun(), 0);
 $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
 
 
+var heightofscroller = (TotalWidth - $(".content-scroller").innerWidth()) + $('body').innerHeight() + "px";
+$('.scroller-container').css('height',heightofscroller);
+
 
 // Dummy Smooth Scroll
 'use strict';
