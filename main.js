@@ -49,25 +49,44 @@ startType(getRandomPun(), 0);
 $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
 
 
-//Finding Total width of the container
+const main = document.querySelector('.contentscroller');
+
 var TotalWidth = 0;
 $(".contentscroller").children("div").each(function () {
     var childrenWidth = $(this).innerWidth();
     TotalWidth += childrenWidth;
-  });
+});
 
-//Function for scrolling the content
-function scrollContentOnPage(percentage) {
-  var scrollValue = ((TotalWidth - $(".content").innerWidth()) / 100) * percentage;  
-  $(".content").scrollLeft(scrollValue);
+TotalWidth = (TotalWidth - $('.content').innerWidth()) + $(window).height();
+
+let sx = 0;
+let sy = 0;
+
+let dx = sx;
+let dy = sy;
+
+document.querySelector('.scrollercontainer').style.height = TotalWidth + 'px';
+
+window.addEventListener('scroll', scroll);
+
+function scroll() {  
+  sx = window.pageXOffset;
+  sy = window.pageYOffset;
 }
 
-//Scrolling content horizontally by matching it with vertical scroll percentage
-$(window).on("scroll", function () {
-  var s = $(window).scrollTop(),
-    d = $(document).height(),
-    c = $(window).height();
+window.requestAnimationFrame(render);
 
-  var scrollPercent = (s / (d - c)) * 100;
-  scrollContentOnPage(scrollPercent);
-});
+function render() {  
+  dx = lerp(dx, sx, 0.07);
+  dy = lerp(dy, sy, 0.07);
+  
+  dx = Math.floor(dx * 100) / 100;
+  dy = Math.floor(dy * 100) / 100;
+  main.style.transform = `translate(-${dy}px, -${dx}px)`;
+  
+  window.requestAnimationFrame(render);
+}
+
+function lerp(a, b, n) {
+  return (1 - n) * a + n * b;
+}
