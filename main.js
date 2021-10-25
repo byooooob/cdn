@@ -55,8 +55,7 @@ var TotalWidth = 0;
 var item_number = 0;
 $(".contentscroller").children("div").each(function () {
     var childrenWidth = $(this).innerWidth();
-    TotalWidth += childrenWidth;
-    alert(childrenWidth);
+    TotalWidth += childrenWidth;    
     item_number += 1;
     offset_value = TotalWidth - ((TotalWidth - $('.content').innerWidth()) + $(window).height());
     totalElement = $('.scrollercontainer div').length
