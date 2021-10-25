@@ -70,7 +70,7 @@ let sy = 0;
 let dx = sx;
 let dy = sy;
 
-window.addEventListener('scroll', scroll);
+window.addEventListener('scroll', scroll, {passive: true});
 
 function scroll() {  
   sx = window.pageXOffset;
