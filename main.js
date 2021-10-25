@@ -94,7 +94,7 @@ function lerp(a, b, n) {
   return (1 - n) * a + n * b;
 }
 
-
+/*
 // Liquid Distort Material
 let material = new Blotter.LiquidDistortMaterial();
 material.uniforms.uSpeed.value = 0.3;
@@ -126,5 +126,4 @@ let blotter3 = new Blotter(material, {texts: text3});
 let scope3 = blotter3.forText(text3);
 container3.textContent = '';
 scope3.appendTo(container3);
-
-
+*/
