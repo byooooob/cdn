@@ -41,7 +41,6 @@ function getRandomPun() {
   return currPun;
 }
 startType(getRandomPun(), 0);
-
 // Search Text Loop - END//
 
 
@@ -49,6 +48,7 @@ startType(getRandomPun(), 0);
 $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
 
 
+// Smooth Scrolling
 const main = document.querySelector('.contentscroller');
 
 var TotalWidth = 0;
@@ -93,3 +93,38 @@ function render() {
 function lerp(a, b, n) {
   return (1 - n) * a + n * b;
 }
+
+
+// Liquid Distort Material
+let material = new Blotter.LiquidDistortMaterial();
+material.uniforms.uSpeed.value = 0.3;
+material.uniforms.uVolatility.value = 0.03;
+material.uniforms.uSeed.value = 0.1;
+
+
+//Line 2
+container2 = document.getElementById("liquify2");
+const text2 = new Blotter.Text("flexibility", {
+  family: "Monument Extended",
+  size: 32,
+  fill: "#fff"
+});
+let blotter2 = new Blotter(material, {texts: text2});
+let scope2 = blotter2.forText(text2);
+container2.textContent = '';
+scope2.appendTo(container2);
+
+
+//Line 3
+container3 = document.getElementById("liquify3");
+const text3 = new Blotter.Text("of freelancers", {
+  family: "Monument Extended",
+  size: 32,
+  fill: "#fff"
+});
+let blotter3 = new Blotter(material, {texts: text3});
+let scope3 = blotter3.forText(text3);
+container3.textContent = '';
+scope3.appendTo(container3);
+
+
