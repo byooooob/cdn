@@ -52,20 +52,24 @@ $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
 const main = document.querySelector('.contentscroller');
 
 var TotalWidth = 0;
+var item_number = 0;
 $(".contentscroller").children("div").each(function () {
     var childrenWidth = $(this).innerWidth();
     TotalWidth += childrenWidth;
+    alert(childrenWidth);
+    item_number += 1;
+    offset_value = TotalWidth - ((TotalWidth - $('.content').innerWidth()) + $(window).height());
+    totalElement = $('.scrollercontainer div').length
+    $('.scrollercontainer div:nth-child('+item_number+')').height(childrenWidth - (offset_value / totalElement));
 });
 
-TotalWidth = (TotalWidth - $('.content').innerWidth()) + $(window).height();
+
 
 let sx = 0;
 let sy = 0;
 
 let dx = sx;
 let dy = sy;
-
-document.querySelector('.scrollercontainer').style.height = TotalWidth + 'px';
 
 window.addEventListener('scroll', scroll);
 
