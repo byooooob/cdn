@@ -127,3 +127,47 @@ let scope3 = blotter3.forText(text3);
 container3.textContent = '';
 scope3.appendTo(container3);
 */
+
+$('nav a').click(function(){
+  var jumptoelement = $(this).attr('data-jump');
+  $('html, body').animate({
+    scrollTop: $("#" + jumptoelement).offset().top
+  }, 1000);
+});
+
+grain_boolean = 1;
+
+$('.grains-toggle').click(function(){
+    
+    if(grain_boolean == 1){     
+      grain_boolean = 0;
+      var options = {
+        "animate": false,
+          "patternWidth": 150,
+          "patternHeight": 150,
+          "grainOpacity": 0.06,
+          "grainDensity": 1,
+          "grainWidth": 1,
+          "grainHeight": 1
+      }
+      grained("#grains", options);
+      $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
+
+    } else if(grain_boolean == 0) {
+      grain_boolean = 1;
+      
+      var options = {
+        "animate": true,
+          "patternWidth": 150,
+          "patternHeight": 150,
+          "grainOpacity": 0.06,
+          "grainDensity": 1,
+          "grainWidth": 1,
+          "grainHeight": 1
+      }
+      grained("#grains", options);
+
+      $(".grained-bg").attr("style", "position: fixed; overflow: hidden;");
+    }
+});
+
