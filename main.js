@@ -128,7 +128,7 @@ container3.textContent = '';
 scope3.appendTo(container3);
 */
 
-$('nav a').click(function(){
+$('a').click(function(){
   var jumptoelement = $(this).attr('data-jump');
   $('html, body').animate({
     scrollTop: $("#" + jumptoelement).offset().top
