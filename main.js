@@ -171,3 +171,18 @@ $('.grains-toggle').click(function(){
     }
 });
 
+$('.radio-button-items').click(function(){  
+  //Removing from other
+  $(this).siblings('.radio-button-items').removeClass('active');
+  $(this).siblings('.radio-button-items').each(function(){
+    $(this).children('.radio-button').children('.radio-button-inside').removeClass('active');
+  });
+
+  //Adding to this
+  $(this).addClass('active');
+  $(this).children('.radio-button').children('.radio-button-inside').addClass('active');  
+});
+
+$('.request-submit').click(function(){
+  $('.syp_submit').click();
+});
