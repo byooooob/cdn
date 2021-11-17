@@ -186,3 +186,49 @@ $('.radio-button-items').click(function(){
 $('.request-submit').click(function(){
   $('.syp_submit').click();
 });
+
+
+$('#syp-name').keyup(function(){
+  var name = $(this).val();
+  $('#sum_name').val(name);
+});
+
+$('#syp-role .radio-button-items').click(function(){
+  var role = $(this).text();
+  $('#sum_role').val('');
+  $('#sum_role').val(role);
+});
+
+$('#syp-request  .radio-button-items').click(function(){
+  var request = $(this).text();
+  $('#sum_request').val('');
+  $('#sum_request').val(request);
+});
+
+$('#syp-details').keyup(function(){
+  var details = $(this).val();
+  $('#sum_details').val(details);
+});
+
+$('#syp-budget').keyup(function(){
+  var details = $(this).val();
+  $('#sum_budget').val(details);
+});
+
+$('#syp-email').keyup(function(){
+  var email = $(this).val();
+  $('#sum_email').val(email);
+});
+
+
+$('#syp-budgetype .radio-button-items').click(function(){
+  var budgetype = $(this).text();
+  $('#sum_budget_type').val('');
+  $('#sum_budget_type').val(budgetype);
+});
+
+
+$('#syp-insta').keyup(function(){
+  var insta = $(this).val();
+  $('#sum_insta').val(insta);
+});
