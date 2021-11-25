@@ -128,12 +128,25 @@ container3.textContent = '';
 scope3.appendTo(container3);
 */
 
-$('a').click(function(){
-  var jumptoelement = $(this).attr('data-jump');
-  $('html, body').animate({
-    scrollTop: $("#" + jumptoelement).offset().top
-  }, 1000);
-});
+if($(window).width() > 1024) {
+  $('a').click(function(){
+    var jumptoelement = $(this).attr('data-jump');
+    $('html, body').animate({
+      scrollTop: $("#" + jumptoelement).offset().top
+    }, 1000);
+  });
+}
+
+
+if($(window).width() < 1024) {
+  $('a').click(function(){
+    var jumptoelement = $(this).attr('data-jump-mobile');
+    console.log(jumptoelement);
+    $('.main-container').animate({
+      scrollTop: $("#" + jumptoelement).offset().top
+    }, 1000);    
+  });
+}
 
 grain_boolean = 1;
 
