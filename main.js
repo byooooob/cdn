@@ -193,6 +193,7 @@ $('.request-submit').click(function(){
 $('#syp-name').keyup(function(){
   var name = $(this).val();
   $('#sum_name').val(name);
+  $('.user_name').text(name);
 });
 
 $('#syp-role .radio-button-items').click(function(){
