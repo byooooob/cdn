@@ -243,21 +243,17 @@ $('#syp-budgetype .radio-button-items').click(function(){
   $('#sum_budget_type').val(budgetype);
 });
 
-
-$('#syp-insta').keyup(function(){
-  var insta = $(this).val();
-  $('#sum_insta').val(insta);
-});
-
-$('#syp-insta').keyup(function(){
-  var insta = $(this).val();
-  $('#sum_insta').val(insta);
-});
-
 $('#SYP-Phone').keyup(function(){
   var phone = $(this).val();
   $('#sum_phone').val(phone);
 });
+
+$('#syp-insta').keyup(function(){
+  var insta = $(this).val();
+  $('#sum_insta').val(insta);
+});
+
+
 
 $("#syp-name, #syp-details, #syp-budget, #syp-insta, #syp-email, #SYP-Phone").on("keypress", function (e) {
   var next_button = $(this).siblings('.syp-question-navigator').children('.syp-ques-next');
